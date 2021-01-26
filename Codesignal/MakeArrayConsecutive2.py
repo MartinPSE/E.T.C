@@ -1,0 +1,1 @@
+def makeArrayConsecutive2(statues):
