@@ -1,6 +1,6 @@
 import requests
 from bs4 import BeautifulSoup
-from Scrapper_SO import get_jobs
+# from Scrapper_SO import get_jobs
 from indeed_ import get_job
 
 from flask import Flask, render_template, request, redirect, send_file
@@ -28,7 +28,7 @@ def report():
         if existingJobs:
             jobs = existingJobs
         else:
-            jobs = get_jobs(word) + get_job(word)
+            jobs =  get_job(word)
             db[word] = jobs
     else:
         return redirect("/")

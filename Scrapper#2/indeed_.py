@@ -3,8 +3,8 @@ from bs4 import BeautifulSoup
 
 
 def get_last_page(url):
-    LIMIT = 50
-    url = f"https://www.indeed.com/jobs?q=python&limit={LIMIT}"
+    LIMIT = 10
+    url = f"https://kr.indeed.com/jobs?q=python&l=%EA%B2%BD%EA%B8%B0%EB%8F%84+%EB%82%A8%EC%96%91%EC%A3%BC&start={LIMIT}"
     result = requests.get(url)
 
     soup = BeautifulSoup(result.text, "html.parser")
@@ -19,7 +19,7 @@ def get_last_page(url):
 
     max_page = pages[-1]
     return max_page
-
+get_last
 
 def extract_job(html):
     title = html.find("h2", {"class": "title"}).find("a")["title"]
@@ -38,7 +38,7 @@ def extract_job(html):
 
 
 def extract_jobs(last_page, url):
-    LIMIT = 50
+    LIMIT = 10
     jobs = []
     for page in range(last_page):
         print(f"Scrapping Indeed > page : {page}")
@@ -52,7 +52,7 @@ def extract_jobs(last_page, url):
 
 
 def get_job(word):
-    LIMIT = 50
+    LIMIT = 10
     url = f"https://www.indeed.com/jobs?q=python&limit={LIMIT}"
     last_page = get_last_page(url)
     jobs = extract_jobs(last_page, url)
