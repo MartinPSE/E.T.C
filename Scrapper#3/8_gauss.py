@@ -1,11 +1,16 @@
 import requests
 from bs4 import BeautifulSoup
+from selenium import webdriver
+
+
+
 
 url = "https://comic.naver.com/webtoon/list.nhn?titleId=335885"
 res = requests.get(url)
 res.raise_for_status()
 
 soup = BeautifulSoup(res.text, "lxml")
+
 # cartoons = soup.find_all("td", attrs={"class": "title"})
 #
 # title = cartoons[2].a.get_text()
@@ -18,11 +23,11 @@ soup = BeautifulSoup(res.text, "lxml")
 #     print (title, link)
 
 total_rates = 0
-scores = soup.find_all("div" , attrs={"class":"rating_type"})
+scores = soup.find_all("div", attrs={"class": "rating_type"})
 for score in scores:
     rate = score.find("strong").get_text()
-    print (rate)
+    print(rate)
     total_rates += float(rate)
 
-print("전체 점수 : " , total_rates)
-print("평균 점수 : " , total_rates / len(scores))
+print("전체 점수 : ", total_rates)
+print("평균 점수 : ", total_rates / len(scores))

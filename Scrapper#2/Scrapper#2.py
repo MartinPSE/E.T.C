@@ -7,8 +7,6 @@ from flask import Flask, render_template, request, redirect, send_file
 
 from exporter import save_to_file
 
-
-
 app = Flask(__name__)
 
 db = {}
@@ -28,7 +26,7 @@ def report():
         if existingJobs:
             jobs = existingJobs
         else:
-            jobs =  get_job(word)
+            jobs = get_job(word)
             db[word] = jobs
     else:
         return redirect("/")
@@ -36,6 +34,7 @@ def report():
                            searchingBy=word,
                            resultsNumber=len(jobs),
                            jobs=jobs)
+
 
 @app.route("/export")
 def export():

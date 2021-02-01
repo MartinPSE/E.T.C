@@ -1,7 +1,7 @@
 import requests
+# 정적인 불러옴을 하는 library.
 
 res = requests.get("http://google.com")
-# res = requests.get("http://nadocoding.tistory.com")
 res.raise_for_status()
 
 # print("응답코드", res.status_code) # 200 이면 정상
@@ -11,9 +11,8 @@ res.raise_for_status()
 # else:
 #     print("문제가 생겼습니다 .[에러코드 ",res.status_code, "]")
 
-
 print(len(res.text))
 print(res.text)
 
-with open("mygoogle.html", "w",  encoding= "utf8") as f:
+with open("myname.html","w",encoding="utf8") as f:
     f.write(res.text)

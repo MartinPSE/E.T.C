@@ -14,9 +14,9 @@ items = soup.find_all("li", attrs={"class": re.compile("^search-product")})
 # titles = items[0].find("div",attrs={"class":"name"}).get_text()
 for item in items:
     # 광고 제품은 제외 한다.
-    ad_badge = item.find("span", attrs={"class":"ad-badge-text"})
+    ad_badge = item.find("span", attrs={"class": "ad-badge-text"})
     if ad_badge:
-        print (" << 광고 상품은 제외합니다 >>")
+        print(" << 광고 상품은 제외합니다 >>")
         continue
 
     title = item.find("div", attrs={"class": "name"}).get_text()
@@ -42,7 +42,7 @@ for item in items:
         number = number[1:-1]
     else:
         number = "(소비자 정보 부족)"
-        print(" << 소비자 정보 부족으로 추천드리지 않습니다. >> " )
+        print(" << 소비자 정보 부족으로 추천드리지 않습니다. >> ")
         continue
 
     if float(rate) >= 4.5 and int(number) >= 100:

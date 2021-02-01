@@ -15,13 +15,13 @@ soup = BeautifulSoup(res.text, "lxml")
 # print(soup.find("a", attrs={"class": "Nbtn_upload"}))
 # print(soup.find(attrs={"class": "Nbtn_upload"}))
 # print(soup.find("li", attrs= {"class": "rank01"}))
-# rank1 = soup.find("li", attrs= {"class": "rank01"})
-# print(rank1.a.get_text())
-# print(rank1.next_sibling)
-# rank2 = rank1.next_sibling.next_sibling
-# rank3 = rank2.next_sibling.next_sibling
-#
-# rank4 = rank3.previous_sibling.previous_sibling
+rank1 = soup.find("li", attrs= {"class": "rank01"})
+print(rank1.a.get_text().strip())
+rank2 = rank1.next_sibling.next_sibling
+rank3 = rank2.next_sibling.next_sibling
+rank4 = rank3.previous_sibling.previous_sibling
+
+print(rank2.a.get_text().strip())
 # print(rank4, rank2)
 # print(rank1.parent)
 #
@@ -34,5 +34,5 @@ soup = BeautifulSoup(res.text, "lxml")
 # rank = rank1.find_next_siblings("li")
 # print(rank)
 
-webtoon = soup.find("a",text="전지적 독자 시점-036. Ep.08 긴급 방어전 (4)")
-print(webtoon)
+# webtoon = soup.find("a",text = "참교육-14화")
+# print(webtoon)

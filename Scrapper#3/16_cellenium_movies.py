@@ -62,4 +62,3 @@ for movie in movies:
 
     print(f"제목 : {title}\n", f"할인 전 금액 : {original_price}\n", f"할인 후 금액 : {sales_price}\n",f"링크 : {apply_link} \n")
 
-browser.quit()
