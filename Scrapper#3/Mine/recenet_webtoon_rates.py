@@ -40,3 +40,5 @@ for score in scores:
 
 print("전체 점수 : ", total_rates)
 print("평균 점수 : ", total_rates / len(scores))
+with open("movie_{}_{}.jpg".format(year, idx + 1), "wb") as f:
+    f.write(image_res.content)
